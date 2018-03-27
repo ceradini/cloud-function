@@ -17,12 +17,9 @@ exports.testNLP = (event, callback) => {
 	language_client
 	.analyzeSentiment({document: document})
 	.then(results => {
-		console.log(results);
-		const sentiment = results[0].documentSentiment;
+		var sentences = results.sentences;
 
-		console.log(`Text: ${text}`);
-		console.log(`Sentiment score: ${sentiment.score}`);
-		console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+		console.log(sentences);
 	})
 	.catch(err => {
 		console.error('ERROR:', err);
