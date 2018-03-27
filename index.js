@@ -25,5 +25,5 @@ exports.testNLP = (event, callback) => {
 		console.error('ERROR:', err);
 	});
 
-	callback.send('END3');
+	callback.send('END');
 };
