@@ -30,6 +30,8 @@ exports.testNLP = (event, callback) => {
 			sentiment_result.push({sentence: local_sentence, score: local_score, magnitude: local_magnitude});
 		});
 
+		console.log(sentiment_result);
+
 		var json = JSON.stringify(sentiment_result);
 
 		console.log(json);
