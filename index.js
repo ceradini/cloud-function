@@ -17,6 +17,7 @@ exports.testNLP = (event, callback) => {
 	language_client
 	.analyzeSentiment({document: document})
 	.then(results => {
+		console.log(results);
 		const sentiment = results[0].documentSentiment;
 
 		console.log(`Text: ${text}`);
@@ -27,5 +28,5 @@ exports.testNLP = (event, callback) => {
 		console.error('ERROR:', err);
 	});
 
-	callback.send('END2');
+	callback.send('END');
 };
