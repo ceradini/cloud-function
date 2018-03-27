@@ -9,6 +9,8 @@ exports.testNLP = (event, callback) => {
 	const document = {
 	  content: text,
 	  type: 'PLAIN_TEXT',
+	  language: 'it',
+
 	};
 
 	// Detects the sentiment of the text
