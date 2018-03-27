@@ -4,12 +4,14 @@ exports.testNLP = (event, callback) => {
 	const language_client = new language.LanguageServiceClient();
 
 	// The text to analyze
-	var text = 'Hello, world!';
+	const text = 'Hello, world!';
 
 	const document = {
 	  content: text,
 	  type: 'PLAIN_TEXT',
 	};
+
+	console.log(text);
 
 	// Detects the sentiment of the text
 	language_client
@@ -25,5 +27,5 @@ exports.testNLP = (event, callback) => {
 		console.error('ERROR:', err);
 	});
 
-	callback.send('END');
+	callback.send('END2');
 };
