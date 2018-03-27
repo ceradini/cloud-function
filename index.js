@@ -23,9 +23,9 @@ exports.testNLP = (event, callback) => {
 		var local_magnitude  = '';
 
 		sentences.forEach(sentence => {
-			local_sentence   = ${sentence.text.content};
-			local_score      = ${sentence.sentiment.score};
-			local_magnitude  = ${sentence.sentiment.magnitude};
+			local_sentence   = sentence.text.content;
+			local_score      = sentence.sentiment.score;
+			local_magnitude  = sentence.sentiment.magnitude;
 
 			sentiment_result.push({sentence: local_sentence, score: local_score, magnitude: local_magnitude});
 	        console.log(`2. Sentence: ${sentence.text.content}`);
