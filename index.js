@@ -28,16 +28,15 @@ exports.testNLP = (event, callback) => {
 			local_magnitude  = sentence.sentiment.magnitude;
 
 			sentiment_result.push({sentence: local_sentence, score: local_score, magnitude: local_magnitude});
-	        console.log(`2. Sentence: ${sentence.text.content}`);
-	        console.log(`2. Score: ${sentence.sentiment.score}`);
-	        console.log(`2. Magnitude: ${sentence.sentiment.magnitude}`);
 		});
+
+		var json = JSON.stringify(sentiment_result);
+
+		console.log(json);
 	})
 	.catch(err => {
 		console.error('ERROR:', err);
 	});
 
-
-	callback.contentType('application/json');
-	callback.send(JSON.stringify(sentiment_result));
+	callback.send("END");
 };
