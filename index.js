@@ -16,16 +16,21 @@ exports.testNLP = (event, callback) => {
 	language_client
 	.analyzeSentiment({document: document})
 	.then(results => {
-		const sentences = results[0].sentences;
+		var sentiment_result = [];
+		const sentences      = results[0].sentences;
+
 		sentences.forEach(sentence => {
-	        console.log(`Sentence: ${sentence.text.content}`);
-	        console.log(`Score: ${sentence.sentiment.score}`);
-	        console.log(`Magnitude: ${sentence.sentiment.magnitude}`);
+			sentiment_result.push({sentence: ${sentence.text.content}, score: ${sentence.sentiment.score}, magnitude: ${sentence.sentiment.magnitude}});
+	        console.log(`2. Sentence: ${sentence.text.content}`);
+	        console.log(`2. Score: ${sentence.sentiment.score}`);
+	        console.log(`2. Magnitude: ${sentence.sentiment.magnitude}`);
 		});
 	})
 	.catch(err => {
 		console.error('ERROR:', err);
 	});
 
-	callback.send('END');
+
+	callback.contentType('application/json');
+	callback.send(JSON.stringify(sentiment_result));
 };
