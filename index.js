@@ -9,17 +9,19 @@ exports.testNLP = (event, callback) => {
 	const document = {
 	  content: text,
 	  type: 'PLAIN_TEXT',
-	  language: 'it',
-
+	  language: 'it'
 	};
 
 	// Detects the sentiment of the text
 	language_client
 	.analyzeSentiment({document: document})
 	.then(results => {
-		var sentences = results.sentences;
-
-		console.log(sentences);
+		const sentences = results[0].sentences;
+		sentences.forEach(sentence => {
+	        console.log(`Sentence: ${sentence.text.content}`);
+	        console.log(`Score: ${sentence.sentiment.score}`);
+	        console.log(`Magnitude: ${sentence.sentiment.magnitude}`);
+		});
 	})
 	.catch(err => {
 		console.error('ERROR:', err);
