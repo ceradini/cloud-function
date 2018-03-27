@@ -4,14 +4,12 @@ exports.testNLP = (event, callback) => {
 	const language_client = new language.LanguageServiceClient();
 
 	// The text to analyze
-	const text = 'Hello, world!';
+	const text = 'Ciao a tutti. Oggi è una bella giornata e sono contento. Per domani è prevista pioggia e sarà una giornata bruttissima';
 
 	const document = {
 	  content: text,
 	  type: 'PLAIN_TEXT',
 	};
-
-	console.log(text);
 
 	// Detects the sentiment of the text
 	language_client
