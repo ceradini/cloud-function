@@ -23,16 +23,12 @@ exports.testNLP = (event, callback) => {
 		var local_magnitude  = '';
 
 		sentences.forEach(sentence => {
-			local_sentence   = sentence.text.content;
-			local_score      = sentence.sentiment.score;
-			local_magnitude  = sentence.sentiment.magnitude;
-
-			sentiment_result.push({sentence: local_sentence, score: local_score, magnitude: local_magnitude});
+			sentiment_result.push({sentence: sentence.text.content, score: sentence.sentiment.score, magnitude: sentence.sentiment.magnitude});
 		});
 
 		console.log(sentiment_result);
 
-		var json = JSON.stringify(sentiment_result);
+		var json = JSON.stringify(sentiment_result);	// this is json result
 
 		console.log(json);
 	})
